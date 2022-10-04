@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using ClockSoftware.Drivers;
+using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 
 namespace SpecFlowProject1.Support
@@ -16,7 +17,7 @@ namespace SpecFlowProject1.Support
         [BeforeScenario]
         public void BeforeScenario()
         {
-            DriverManager driverManager = new DriverManager(_scenarioContext);
+            BrowserDrivers driverManager = new BrowserDrivers(_scenarioContext);
             _scenarioContext.Set(driverManager, "DriverManager");
 
         }
