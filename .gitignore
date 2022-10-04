@@ -15,7 +15,8 @@
 
 # User-specific files (MonoDevelopXamarin Studio)
 .userprefs
-
+/Reports/*
+Reports/*
 # Build results
 [Dd]ebug
 [Dd]ebugPublic
