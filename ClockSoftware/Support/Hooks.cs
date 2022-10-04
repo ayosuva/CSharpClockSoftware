@@ -15,7 +15,7 @@ namespace SpecFlowProject1.Support
         static AventStack.ExtentReports.ExtentTest feature;
         AventStack.ExtentReports.ExtentTest scenario,step;
         static string reportPath = Directory.GetParent(@"../../../").FullName
-            + Path.DirectorySeparatorChar + "Result"
+            + Path.DirectorySeparatorChar + "Reports"
             + Path.DirectorySeparatorChar + "Html_Report_" + DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss")+"\\";
         public Hooks(ScenarioContext scenarioContext)
         {
