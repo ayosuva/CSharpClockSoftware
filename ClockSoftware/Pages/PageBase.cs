@@ -68,5 +68,10 @@ namespace ClockSoftware.Pages
 
             return date.AddDays(numberOfDaysToBeAdded).ToString(format);
         }
+        public string ScreenshotAsBase64String()
+        {
+            Screenshot screenshot = (driver as ITakesScreenshot).GetScreenshot();
+            return Convert.ToBase64String (screenshot.AsByteArray);
+        }
     }
 }
