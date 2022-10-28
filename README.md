@@ -1,6 +1,6 @@
 # CSharpClockSoftware
 
-It is a Selenium C# based test automation framework and the test scripts written for Clock Software site https://www.clock-software.com/demo-clockpms/index.html
+It is a Selenium C# Specflow BDD based test automation framework and the test scripts written for Clock Software site https://www.clock-software.com/demo-clockpms/index.html
 
 It has following features:
 
