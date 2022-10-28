@@ -12,7 +12,7 @@ namespace ClockSoftware.Pages
 {
     public class PaymentPage: PageBase
     {
-        public PaymentPage(IWebDriver driver) : base(driver)
+        public PaymentPage(Drivers.DriverManager driver) : base(driver)
         {
         }
         By input_CardNumber = By.XPath("//input[@id='cardNumber']");

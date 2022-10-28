@@ -16,7 +16,7 @@ namespace ClockSoftware.Pages
     By input_Business_Services_AddOn = By.XPath("//*[contains(text(),'Business')]/../following-sibling::div/input");
     By btn_Add_Selected_Service = By.XPath("//input[@value='Add the selected services >>']");
 
-        public ExtraServicesPage(IWebDriver driver) : base(driver)
+        public ExtraServicesPage(Drivers.DriverManager driver) : base(driver)
         {
         }
 

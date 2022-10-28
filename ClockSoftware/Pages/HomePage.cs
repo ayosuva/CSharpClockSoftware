@@ -16,7 +16,7 @@ namespace ClockSoftware.Pages
         By input_Number_Of_Nights = By.XPath("//input[@id='to-place']");
         By btn_Book_Now = By.XPath("//input[@value='Book now !']");
 
-        public HomePage(IWebDriver driver) : base(driver)
+        public HomePage(Drivers.DriverManager driver) : base(driver)
         {
 
         }

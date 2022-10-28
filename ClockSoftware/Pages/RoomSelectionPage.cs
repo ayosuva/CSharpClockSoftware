@@ -15,9 +15,9 @@ namespace ClockSoftware.Pages
     public class RoomSelectionPage : PageBase
     {
         IWebDriver driver;
-        public RoomSelectionPage(IWebDriver driver) : base(driver)
+        public RoomSelectionPage(Drivers.DriverManager driver) : base(driver)
         {
-            this.driver = driver;
+            this.driver = driver.GetDriver();
         }
 
         By label_room_types = By.XPath("//div[contains(@class,'bookable-container bookable-location')]//h2");

@@ -19,20 +19,22 @@ namespace SpecFlowProject1.StepDefinitions
         PaymentPage paymentPage;
         String arrival_date="";
         IWebDriver driver;
-        public BookARoomInDeluxeApartmentStepDefinitions(ScenarioContext scenarioContext)
+        DriverManager context;
+
+        public BookARoomInDeluxeApartmentStepDefinitions(DriverManager context)
         {
-            _scenarioContext = scenarioContext;
-            driver = _scenarioContext.Get<BrowserDrivers>("DriverManager").GetWebDriver();
-            homePage = new HomePage(driver);
-            roomSelectionPage = new RoomSelectionPage(driver);
-            extraServicesPage = new ExtraServicesPage(driver);
-            contactDetailsPage = new ContactDetailsPage(driver);
-            paymentPage = new PaymentPage(driver);
+            this.context = context;
+            homePage = new HomePage(context);
+            roomSelectionPage = new RoomSelectionPage(context);
+            extraServicesPage = new ExtraServicesPage(context);
+            contactDetailsPage = new ContactDetailsPage(context);
+            paymentPage = new PaymentPage(context);
         }
 
         [Given(@"I am on homepage")]
         public void GivenIAmOnHomepage()
         {
+            driver = context.GetDriver();
             driver.Url = "https://www.clock-software.com/demo-clockpms/index.html";
         }
 

@@ -14,12 +14,16 @@ namespace SpecFlowProject1.Support
         static AventStack.ExtentReports.ExtentReports extent;
         static AventStack.ExtentReports.ExtentTest feature;
         AventStack.ExtentReports.ExtentTest scenario,step;
+        DriverManager driverManager;
+
         static string reportPath = Directory.GetParent(@"../../../").FullName
             + Path.DirectorySeparatorChar + "Reports"
             + Path.DirectorySeparatorChar + "Html_Report_" + DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss")+"\\";
-        public Hooks(ScenarioContext scenarioContext)
+        public Hooks(ScenarioContext scenarioContext, DriverManager context)
         {
             _scenarioContext = scenarioContext;
+            this.driverManager = context;
+
         }
 
         [BeforeTestRun]
@@ -33,6 +37,7 @@ namespace SpecFlowProject1.Support
         public static void BeforeFeature(FeatureContext context)
         {
             feature = extent.CreateTest(context.FeatureInfo.Title);
+
         }
 
 
@@ -40,8 +45,7 @@ namespace SpecFlowProject1.Support
         public void BeforeScenario(ScenarioContext context)
         {
             scenario = feature.CreateNode(context.ScenarioInfo.Title);
-            BrowserDrivers driverManager = new BrowserDrivers(_scenarioContext);
-            _scenarioContext.Set(driverManager, "DriverManager");
+            
 
         }
         [BeforeStep]
@@ -53,7 +57,7 @@ namespace SpecFlowProject1.Support
         [AfterStep]
         public void AfterStep(ScenarioContext context)
         {
-            PageBase pageBase = new PageBase(_scenarioContext.Get<IWebDriver>("WebDriver"));
+            PageBase pageBase = new PageBase(driverManager);
             if (context.TestError == null)
             {
                 step.Log(Status.Pass, context.StepContext.StepInfo.Text, MediaEntityBuilder.CreateScreenCaptureFromBase64String(pageBase.ScreenshotAsBase64String()).Build());
@@ -67,7 +71,7 @@ namespace SpecFlowProject1.Support
         [AfterScenario]
         public void AfterScenario()
         {
-            _scenarioContext.Get<IWebDriver>("WebDriver").Quit();
+            driverManager.GetDriver().Quit();
         }
 
         [AfterFeature]

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WebDriverManager;
 using SeleniumExtras.WaitHelpers;
+using ClockSoftware.Drivers;
 
 namespace ClockSoftware.Pages
 {
@@ -15,9 +16,9 @@ namespace ClockSoftware.Pages
     {
         IWebDriver driver;
 
-        public PageBase(IWebDriver driver)
+        public PageBase(Drivers.DriverManager driver)
         {
-            this.driver =driver;
+            this.driver = driver.GetDriver();
         }
 
         public IWebElement getWebElementVisible(By by)

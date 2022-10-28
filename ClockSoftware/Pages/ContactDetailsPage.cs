@@ -10,13 +10,11 @@ namespace ClockSoftware.Pages
 {
     public class ContactDetailsPage : PageBase
     {
+        public ContactDetailsPage(Drivers.DriverManager driver) : base(driver)
+        {
+        }
 
-    public ContactDetailsPage(IWebDriver driver): base(driver)
-    {
-    
-    }
-
-    By input_Email = By.XPath("//input[@title='E-mail']");
+        By input_Email = By.XPath("//input[@title='E-mail']");
     By input_LastName = By.XPath("//input[@id='booking_guest_attributes_last_name']");
     By input_FirstName = By.XPath("//input[@id='booking_guest_attributes_first_name']");
     By input_Phone = By.XPath("//input[@id='booking_guest_attributes_phone_number']");
@@ -30,7 +28,9 @@ namespace ClockSoftware.Pages
     By label_Add_on = By.XPath("//*[text()='Extra Services']/../following-sibling::div");
     By label_Total = By.XPath("//div[@class='row total_charges']//*[contains(text(),'EUR')]");
 
-    public void enter_user_details_and_create_booking()
+
+
+        public void enter_user_details_and_create_booking()
     {
         getWebElementVisible(input_Email).SendKeys("test@testxx.com");
         getWebElementVisible(input_FirstName).SendKeys("Test Name");
